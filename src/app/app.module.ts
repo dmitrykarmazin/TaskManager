@@ -2,17 +2,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
+import { TaskModule } from './task/task.module';
 import { AppComponent } from './app.component';
-import { TasksTableComponent } from './tasks-table/tasks-table.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    TasksTableComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    TaskModule
   ],
   providers: [],
   bootstrap: [AppComponent]
