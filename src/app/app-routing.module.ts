@@ -6,7 +6,7 @@ import { TasksDescriptionComponent } from './task/tasks-description/tasks-descri
 const routes: Routes = [
   { path: '', component: TasksTableComponent },
   { path: 'task/:id', component: TasksDescriptionComponent },
-  { path: '**', redirectTo: '', pathMatch:'full' }
+  { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 
 @NgModule({
