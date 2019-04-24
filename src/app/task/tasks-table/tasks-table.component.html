@@ -17,6 +17,7 @@
             [ngClass]="{'high_priority': task?.is_high_priority }" 
             >{{task.name}}
             </a>
+            <span *ngFor="let tag of task.tags" class="task_tag">{{tag}}</span>
           </td>
           <td>{{task.actual_effort==undefined?'N/A':task.actual_effort}}</td>
           <td>{{task.estimated_effort==undefined?'N/A':task.estimated_effort}}</td>
