@@ -1,7 +1,19 @@
 <div class="container">
   <br>
   <div *ngIf="this.task" class="card">
-    <h5 class="card-header">{{task.name}}</h5>
+    <div class="editable">
+      <h5 
+        class="card-header" 
+        *ngIf="!this.editMode"
+        (click)="enableEditMode()">{{task.name}}</h5>
+      <input *ngIf="this.editMode"
+        type="text"
+        id="editField"
+        #edit
+        class="editable-input"
+        [(ngModel)]="task.name"
+        (blur)="onBlur()">
+    </div>
     <div class="card-body">
       <h5 class="card-title">Special info</h5>
       <p class="card-text">{{task.description}}.</p>
