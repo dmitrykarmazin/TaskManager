@@ -14,7 +14,7 @@
             <a 
             class="task_link"
             [routerLink]="['/task',task.id]"
-            [ngClass]="{'high_priority': task?.is_high_priority == true}" 
+            [ngClass]="{'high_priority': task?.is_high_priority }" 
             >{{task.name}}
             </a>
           </td>

@@ -21,8 +21,10 @@ export class TasksDescriptionComponent implements OnInit {
 
   ngOnInit() {
     const id: number = this.activeRoute.snapshot.params.id;
-    this.subs = this.taskService.getTaskById(id).subscribe(( task: Task) => this.task = task);
-    console.log(this.task);
+
+    this.subs = this.taskService.getTaskById(id)
+      .subscribe(( task: Task) => this.task = task);
+
   }
   OnDestroy(): void {
     if (this.subs) {

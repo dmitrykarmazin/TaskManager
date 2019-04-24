@@ -15,9 +15,9 @@ export class TaskService {
   getTasks(): Observable<Task[]> {
     return this.http.get<Task[]>('../../../assets/tasks.json');
   }
-  getTaskById(id: number): any {
+  getTaskById(id: number): Observable<Task> {
     return this.getTasks().pipe(
-      map((data: Task[]) => data.find(t => t.id === id))
+       map((data: Task[]) => data.find(t => t.id == id))
     );
   }
 }
