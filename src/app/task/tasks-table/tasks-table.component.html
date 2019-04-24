@@ -1,3 +1,28 @@
-<p>
-  tasks-table works!
-</p>
+<div class="container">
+  <table class="table table-striped table-inverse ">
+    <thead class="thead-inverse">
+      <tr>
+        <th>Name</th>
+        <th>Actual time</th>
+        <th>Estimated effort</th>
+        <th>Due time</th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let task of active_tasks">
+          <td scope="row">
+            <a 
+            class="task_link"
+            [routerLink]="['/task',task.id]"
+            [ngClass]="{'high_priority': task?.is_high_priority == true}" 
+            >{{task.name}}
+            </a>
+          </td>
+          <td>{{task.actual_effort==undefined?'N/A':task.actual_effort}}</td>
+          <td>{{task.estimated_effort==undefined?'N/A':task.estimated_effort}}</td>
+          <td>{{task.due_date==undefined?'N/A':(task.due_date|date:'medium')}}
+          </td>
+        </tr>
+      </tbody>
+  </table>
+</div>
