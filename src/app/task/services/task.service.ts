@@ -20,4 +20,8 @@ export class TaskService {
        map((data: Task[]) => data.find(t => t.id == id))
     );
   }
+  updateTask(task: Task) {
+    // fake put request
+    this.http.put('http://localhost:4200', task);
+  }
 }
