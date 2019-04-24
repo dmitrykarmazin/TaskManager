@@ -1,5 +1,5 @@
 import { Task } from './../models/task.model';
-import { Component, OnInit , ViewChild, ElementRef, HostListener} from '@angular/core';
+import { Component, OnInit , ViewChild, ElementRef, HostListener, ChangeDetectorRef} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TaskService } from '../services/task.service';
 import { Subscription } from 'rxjs';
@@ -16,9 +16,11 @@ export class TasksDescriptionComponent implements OnInit {
   public subs: Subscription;
   public editMode = false;
   @ViewChild('edit') editField: ElementRef;
+
   constructor(
     private activeRoute: ActivatedRoute,
-    private taskService: TaskService
+    private taskService: TaskService,
+    private cd: ChangeDetectorRef
   ) { }
 
   ngOnInit() {
@@ -30,8 +32,13 @@ export class TasksDescriptionComponent implements OnInit {
   enableEditMode() {
     this.editMode = true;
     console.log(this.editField);
+    this.cd.detectChanges();
     this.editField.nativeElement.focus();
+    // setTimeout(() => {
+    //   this.editField.nativeElement.focus();
+    // }, 0);
   }
+
   onBlur() {
     this.editMode = false;
     this.taskService.updateTask(this.task);
