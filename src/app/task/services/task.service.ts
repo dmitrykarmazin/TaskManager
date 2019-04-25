@@ -35,11 +35,11 @@ export class TaskService {
     // fake put request
     this.http.put(`http://localhost:4200/task/${task.id}`, task).subscribe();
 
-    const outdatedTask = this.taskList.find((i) => i.id === task.id);
-    console.log(outdatedTask);
-    const index = this.taskList.indexOf(outdatedTask);
+    // const outdatedTask = this.taskList.find((i) => i.id === task.id);
+    // console.log(outdatedTask);
+    // const index = this.taskList.indexOf(outdatedTask);
 
-    this.taskList[index] = task;
+    // this.taskList[index] = task;
 
   }
 }
