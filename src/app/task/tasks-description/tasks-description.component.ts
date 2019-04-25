@@ -1,5 +1,6 @@
 import { Task } from './../models/task.model';
 import { Component, OnInit , ViewChild, ElementRef, HostListener, ChangeDetectorRef} from '@angular/core';
+import { DatePipe } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { TaskService } from '../services/task.service';
 import { Subscription } from 'rxjs';
@@ -20,7 +21,8 @@ export class TasksDescriptionComponent implements OnInit {
   constructor(
     private activeRoute: ActivatedRoute,
     private taskService: TaskService,
-    private cd: ChangeDetectorRef
+    private cd: ChangeDetectorRef,
+    private dp: DatePipe
   ) { }
 
   ngOnInit() {
@@ -77,5 +79,13 @@ export class TasksDescriptionComponent implements OnInit {
     if (this.subs) {
       this.subs.unsubscribe();
     }
+  }
+
+  formatValue(data: any) {
+    // tslint:disable-next-line:triple-equals
+    if ( data == undefined ) { return 'N/A';
+    } else if (!isNaN(Date.parse(data)) && isNaN(data)) {
+      return this.dp.transform(data, 'MMM d, y, h:mm:ss a');
+    } else { return data; }
   }
 }

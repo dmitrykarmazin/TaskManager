@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
@@ -13,6 +13,7 @@ import { TasksDescriptionComponent } from './tasks-description/tasks-description
     HttpClientModule,
     RouterModule,
     FormsModule
-  ]
+  ],
+  providers: [DatePipe]
 })
 export class TaskModule { }

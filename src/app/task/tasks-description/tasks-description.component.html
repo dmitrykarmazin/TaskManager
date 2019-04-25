@@ -17,6 +17,9 @@
     <div class="card-body">
       <h5 class="card-title">Special info</h5>
       <p class="card-text">{{task.description}}.</p>
+      <p *ngFor="let item of task|keyvalue">
+        <strong>{{item.key}}</strong> : {{formatValue(item.value)}}
+      </p>
     </div>
   </div>
 </div>
